@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .photo {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-right: 50px;
+            background-image: url("pp.JPG");
+            background-size: cover;
+            background-position: 33% 25%;
+
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* #follow_handle {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+        } */
+
+        .follow_handle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background-color: #3897f0;
+            color: #000000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: #65a2db;
+        }
+
+        .handle_stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bluetik {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        #bio {
+            width: 100%;
+        }
+
+        p {
+            font-size: 16px;
+            color: #5e4c4c;
+        }
+
+        span {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .photo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 14px;
+            }
+
+            h3 {
+                font-size: 12px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 12px;
+            }
+
+            h3 {
+                font-size: 10px;
+            }
+
+            p {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="photo">
+        </div>
+
+        <div class="info">
+            <div class="handle_stats">
+                <div class="follow_handle">
+                    <h1><span id="id_name">
+
+                        </span></h1>
+                </div>
+                <div class="bluetik" >
+                    <img src="bluetik.png" alt="bluetik" width="15px" height="15px">
+                </div>
+                <div class="follow_handle">
+                    <button>
+                        <p>Follow</p>
+                    </button>
+                    <button>
+                        <p>Message</p>
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="handle_stats">
+                <div class="stats">
+                    <h1><span id="id_posts">
+
+                        </span></h1>
+                    <p>Posts</p>
+                </div>
+                <div class="stats">
+                    <h1><span id="id_followers">
+
+                        </span></h1>
+                    <p>Followers</p>
+                </div>
+                <div class="stats">
+                    <h1><span id="id_following">
+
+                        </span></h1>
+                    <p>Following</p>
+                </div>
+            </div>
+
+            <div id="nickname">
+                <h2><span id="id_nickname">
+
+                    </span></h2>
+
+                <h3>
+                    @<span id="username">
+
+                    </span>
+                </h3>
+            </div>
+
+            <div id="bio">
+                <p><span id="id_bio">
+
+                    </span></p>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+<script>
+    let data = {
+        name: "Hariom Chauhan",
+        nickname: "Hari",
+        username: "hariomchauhan",
+        bio: "I am a web developer",
+        posts: 99,
+        followers: 999 + "K",
+        following: 100
+    }
+
+    document.getElementById("id_name").innerHTML = data.name;
+
+    document.getElementById("id_nickname").innerHTML = data.nickname;
+
+    document.getElementById("username").innerHTML = data.username;
+
+    document.getElementById("id_bio").innerHTML = data.bio;
+
+    document.getElementById("id_posts").innerHTML = data.posts;
+
+    document.getElementById("id_followers").innerHTML = data.followers;
+
+    document.getElementById("id_following").innerHTML = data.following;
+
+</script>
+
+</html>

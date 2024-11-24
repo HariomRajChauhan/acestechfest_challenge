@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .item {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            margin: 10px;
+            flex: 1 1 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="product-container"></div>
+
+    <script>
+        const product = {
+            Name: "Samsung Galaxy S21",
+            Price: 999.99,
+            Manufacturer: "Samsung",
+            Image: "https://www.samsung.com/us/smartphones/galaxy-s21-5g/_jcr_content/og/og_image.jpg",
+            Description: "The Samsung Galaxy S21 is a series of Android-based smartphones designed, developed, marketed, and manufactured by Samsung Electronics as part of its Galaxy S series. They collectively serve as the successor to the Galaxy S20 series.",
+            Rating: 4.5,
+            Review: 100,
+            Category: "Smartphone",
+            Stock: 100,
+            Discount: 0.1,
+            IsAvailable: true,
+            IsOnSale: false,
+            IsNew: false,
+            IsRecommended: true,
+            IsFeatured: true
+        };
+
+        const container = document.getElementById('product-container');
+
+        const item = document.createElement('div');
+        item.className = 'item';
+
+        const productDetails = `
+            <img src="${product.Image}" alt="${product.Name}">
+            <h2>${product.Name}</h2>
+            <p>${product.Description}</p>
+            <p><strong>Price:</strong> $${product.Price}</p>
+            <p><strong>Rating:</strong> ${product.Rating}</p>
+            <p><strong>Review:</strong> ${product.Review}</p>
+            <p><strong>Category:</strong> ${product.Category}</p>
+            <p><strong>Stock:</strong> ${product.Stock}</p>
+            <p><strong>Discount:</strong> ${product.Discount * 100}%</p>
+            <p><strong>Is Available:</strong> ${product.IsAvailable ? 'Yes' : 'No'}</p>
+            <p><strong>Is On Sale:</strong> ${product.IsOnSale ? 'Yes' : 'No'}</p>
+            <p><strong>Is New:</strong> ${product.IsNew ? 'Yes' : 'No'}</p>
+            <p><strong>Is Recommended:</strong> ${product.IsRecommended ? 'Yes' : 'No'}</p>
+            <p><strong>Is Featured:</strong> ${product.IsFeatured ? 'Yes' : 'No'}</p>
+        `;
+
+        item.innerHTML = productDetails;
+        container.appendChild(item);
+    </script>
+</body>
+</html>

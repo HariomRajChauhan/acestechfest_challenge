@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+
+
+        div {
+            margin: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* border: 1px solid black; */
+            /* border-radius: 5px; */
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+            width: 200px;
+            border: 2px solid rgba(26, 118, 172, 0.281);
+            border-radius: 5px;
+            height: 50px;
+            font-size: 1rem;
+
+            
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input::placeholder {
+            font-size: 1rem;
+        }
+
+        input[type="text"] {
+            text-align: center;
+        }
+
+        button {
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+            width: 100px;
+            border: none;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            
+        }
+
+
+
+        button:hover {
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        h1 {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #output {
+            color: red;
+        }
+
+        #submit {
+            background-color: green;
+            color: white;
+
+        }
+
+        #reset {
+            background-color: red;
+            color: white;
+
+        }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id="input" placeholder="Enter a number">
+
+        <button onclick="submit()" id="submit">Submit</button>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <div>
+        <h1 id="output"></h1>
+    </div>
+
+    <script>
+        function submit() {
+            var value = document.getElementById("input").value;
+            if (value == "") {
+                document.getElementById("output").innerHTML = "Please enter a number";
+            } else {
+                if (value%1 == 0) {
+                    for(let i = 0; i <= value; i++){
+                        if(i %2 == 0){
+                            document.getElementById("output").innerHTML += i + " ";
+                        }
+                    }
+                    document.getElementById("output").style.color = "green";
+                } else {
+                    document.getElementById("output").innerHTML = "Please enter a valid number";
+                }
+            }
+
+            
+            
+        }
+
+        function reset() {
+            document.getElementById("input").value = "";
+            document.getElementById("output").innerHTML = "";
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
