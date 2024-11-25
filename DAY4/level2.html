@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY4 level 2</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+        }
+
+        div {
+            margin: 10px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid #00796b;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #004d40;
+        }
+
+        input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        input[type="text"] {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            width: 120px;
+            border: 2px solid #00796b;
+            border-radius: 5px;
+            height: 40px;
+            font-size: 1rem;
+            background-color: #00796b;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        button:active {
+            background-color: #00251a;
+        }
+
+        h1 {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.5rem;
+            color: #00796b;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id="input" placeholder="Enter the numbers of elements">
+
+        <button onclick="submit()" id="submit">Submit</button>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <div>
+        <h1 id="output"></h1>
+    </div>
+
+    <script>
+        let input = document.getElementById('input');
+        let output = document.getElementById('output');
+
+        function submit() {
+
+            let noOfElement = input.value;
+            let arr = [];
+
+            for (let i = 0; i < noOfElement; i++) {
+                arr.push(Number(prompt('Enter the number')));
+            }
+
+            let sum = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+
+            let average = sum / arr.length;
+
+            output.innerText = 'The average of the numbers is ' + average;
+
+
+        }
+
+        function reset() {
+            input.value = '';
+            output.innerText = '';
+        }
+
+
+    </script>
+
+</body>
+
+</html>
