@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2 DOM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        TEXT for JS
+    </h2>
+
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <script>
+        let text = document.querySelector('h2');
+        text.append(" from HRCH");
+
+        let divs = document.querySelectorAll('.box');
+        divs.forEach((div, index) => {
+            div.append("DIV "+`${index + 1} from HRCH`);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button id="btn">Click Me</button> -->
+
+
+    <script>
+        let btn = document.createElement('button');
+        btn.textContent = 'Click Me';
+        btn.style.padding = '10px 20px';
+        btn.style.border = 'none';
+        btn.style.borderRadius = '5px';
+        btn.style.backgroundColor = 'red';
+        btn.style.color = 'white';
+        btn.style.fontSize = '1.2rem';
+        btn.style.cursor = 'pointer';
+        btn.style.transition = 'background-color 0.3s';
+        document.body.append(btn);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

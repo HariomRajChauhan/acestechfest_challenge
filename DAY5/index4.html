@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .initial-class {
+            color: rgb(89, 35, 126);
+            font-size: 1.4rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+        }
+        .new-class {
+            background-color: rgb(231, 231, 172);
+            font-weight: bold;
+            font-size: 1.6rem;
+            color: rgb(35, 63, 116);
+            padding: 15px 25px;
+            border: 0.3cap solid #5d869669;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            
+        }
+    </style>
+</head>
+<body>
+    <p class="initial-class" id="myParagraph">This is a paragraph.</p>
+
+    <script>
+        document.getElementById('myParagraph').classList.add('new-class');
+    </script>
+</body>
+</html>
