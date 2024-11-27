@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toy</title>
+
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #e07116;
+            --tertiary-color: #b8c8cf;
+            --quaternary-color: #4b2e1e;
+            --quinary-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--quaternary-color);
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: var(--primary-color);
+        }
+
+        .container {
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .game {
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2vmin;
+
+        }
+
+        .box {
+            height: 18vmin;
+            width: 18vmin;
+            background-color: var(--secondary-color);
+            color: var(--quinary-color);
+            font-size: 15vmin;
+            border-radius: 0.8vmin;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 1vmin var(--quaternary-color);
+        }
+
+        #reset_btn {
+            margin-top: 2vmin;
+            padding: 2vmin 3vmin;
+            background-color: var(--secondary-color);
+            color: var(--quinary-color);
+            font-size: 4vmin;
+            border: none;
+            border-radius: 0.8vmin;
+            cursor: pointer;
+            box-shadow: 0 0 1vmin var(--quaternary-color);
+        }
+
+        #new-btn {
+            margin-top: 2vmin;
+            padding: 2vmin 3vmin;
+            background-color: var(--secondary-color);
+            color: var(--quinary-color);
+            font-size: 4vmin;
+            border: none;
+            border-radius: 0.8vmin;
+            cursor: pointer;
+            box-shadow: 0 0 1vmin var(--quaternary-color);
+        }
+
+        #msg {
+            font-size: 5vmin;
+            margin-bottom: 2vmin;
+        }
+
+        .msg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="msg-container hide">
+        <p id="msg">
+            Winner
+        </p>
+        <button id="new-btn">New Game</button>
+    </div>
+
+    <main>
+        <h1>
+            Tic Tac Toy
+        </h1>
+
+        <div class="container">
+            <div class="game">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+        </div>
+
+        <button id="reset_btn">Reset Game</button>
+    </main>
+
+
+    <script>
+        let boxes = document.querySelectorAll('.box');
+        let reset_btn = document.querySelector('#reset_btn');
+        let new_btn = document.querySelector('#new-btn');
+        let msg_container = document.querySelector('.msg-container');
+        let msg = document.querySelector('#msg');
+
+        let count = 0;
+
+        let turn0 = true;//true for 0 and false for X
+
+        const winPatterns = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        const reset_Game = () => {
+            turn0 = true;
+            enableBoxes();
+            msg_container.classList.add('hide');
+
+
+        };
+
+        boxes.forEach((box) => {
+            box.addEventListener("click", () => {
+                // console.log("box clicked");
+                if (turn0) {
+                    box.innerText = '0';
+                    turn0 = false;
+                } else {
+                    box.innerText = 'X';
+                    turn0 = true;
+                }
+                box.disabled = true;
+
+                checkWinner();
+            });
+        });
+
+        const diabledBoxes = () => {
+            boxes.forEach((box) => {
+                box.disabled = true;
+            });
+        };
+
+        const enableBoxes = () => {
+            boxes.forEach((box) => {
+                box.disabled = false;
+                box.innerText = "";
+            });
+        };
+
+        const showWinner = (winner) => {
+            msg.innerText = `Congratulation, Winner is ${winner}`;
+            msg_container.classList.remove('hide');
+            diabledBoxes();
+        };
+
+
+        const checkWinner = () => {
+            for (let pattern of winPatterns) {
+                let pos1val = boxes[pattern[0]].innerText;
+                let pos2val = boxes[pattern[1]].innerText;
+                let pos3val = boxes[pattern[2]].innerText;
+
+                if (pos1val != "" && pos2val != "" && pos3val != "") {
+                    if (pos1val === pos2val && pos2val === pos3val) {
+                        showWinner(pos1val);
+
+                    }
+                }
+            }
+        };
+
+        new_btn.addEventListener("click", reset_Game);
+        reset_btn.addEventListener("click", reset_Game);
+
+
+
+
+    </script>
+</body>
+
+</html>
